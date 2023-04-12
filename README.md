@@ -14,3 +14,12 @@
     -  ✖️ 2.2. Entités d'accès aux données et tests
     -  ✖️ 2.3. Structure HTML, CSS et tests d'acceptation
     -  ✖️ 2.4. Création, édition et suppression d'entités
+
+## Slyle de codage
+1. Télécharger et Placer le fichier de configuration à la racine du projet (.php-cs-fixer.php).
+2. Première vérification manuelle avec la commande `vendor/bin/php-cs-fixer fix --dry-run`.
+3. Le fichier « src/Mypdo.php » n'est pas valide (option `--dry-run` ou test à blanc demande une exécution normale, mais aucun fichier n'est modifié).
+4. Nouvelle vérification manuelle avec la commande `vendor/bin/php-cs-fixer fix --dry-run --diff`.
+5. Correction du fichier « src/Mypdo.php » (option `--diff` affiche les différences entre l'original et ce qui est ou serait corrigé).
+6. Dernière vérification manuelle avec la commande `vendor/bin/php-cs-fixer fix`.
+7. Correction du fichier « src/Mypdo.php ».
