@@ -1,1 +1,6 @@
+.pptx
+.idea
+venv/
+/vendor/
+.php-cs-fixer.cache
 
