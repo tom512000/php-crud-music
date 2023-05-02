@@ -16,5 +16,18 @@
     ],
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.16"
-    }
+    },
+  "require": {
+    "ext-pdo": "*"
+    },
+    "scripts": {
+        "start:linux": "bin/run-server.sh",
+        "test:cs": "php vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "fix:cs": "php vendor/bin/php-cs-fixer fix",
+        "start:windows": "bin/run-server.bat",
+        "start": "@start:linux"
+    },
+    "config": {
+      "process-timeout": 0
+  }
 }
