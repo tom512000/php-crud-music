@@ -5,8 +5,10 @@ declare(strict_types=1);
 require_once '../vendor/autoload.php';
 
 use Database\MyPdo;
+use Html\WebPage;
 
-MyPDO::setConfiguration('mysql:host=mysql;dbname=cutron01_music;charset=utf8', 'web', 'web');
+$webpage = new WebPage();
+$webpage->setTitle("Table de Pythagore");
 
 $stmt = MyPDO::getInstance()->prepare(
     <<<'SQL'
@@ -18,23 +20,11 @@ SQL
 
 $stmt->execute();
 
-$html = <<<HTML
-<!DOCTYPE html>
-<html lang="fr">
-   <head>
-      <meta charset="UTF-8">
-      <title>Table de Pythagore</title>
-    </head>
-    <body>\n
-HTML;
 
 while (($ligne = $stmt->fetch()) !== false) {
-    $html .= "      <p>{$ligne['name']}\n";
+    $verif = $webpage->escapeString($ligne['name']);
+    $webpage->appendContent("      <p>{$verif}\n");
 }
 
-$html .= <<<HTML
-    </body>
-</html>
-HTML;
 
-echo $html;
+echo $webpage->toHTML();

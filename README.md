@@ -23,3 +23,9 @@
 5. Correction du fichier « src/Mypdo.php » (option `--diff` affiche les différences entre l'original et ce qui est ou serait corrigé).
 6. Dernière vérification manuelle avec la commande `vendor/bin/php-cs-fixer fix`.
 7. Correction du fichier « src/Mypdo.php ».
+
+## Amélioration de la DX (« Developer eXperience »)
+Grâce au script start:linux dans le fichier « composer.json », la commande `php -d display_errors -S localhost:8000 -t public/` est remplacée par la commande `composer start:linux` qui facilite donc son utilisation.
+
+## Configuration de la base de données
+Le fichier « .mypdo.ini » est un fichier de configuration qui remplace la ligne `MyPDO::setConfiguration('mysql:host=mysql;dbname=cutron01_music;charset=utf8', 'web', 'web');` du fichier *index.php* qui permet la connexion à Mysql.
