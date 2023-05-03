@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 require_once '../vendor/autoload.php';
@@ -20,11 +19,11 @@ SQL
 
 $stmt->execute();
 
-
+$num = 0;
 while (($ligne = $stmt->fetch()) !== false) {
     $verif = $webpage->escapeString($ligne['name']);
-    $webpage->appendContent("      <p>{$verif}\n");
+    $webpage->appendContent("\t<p><a href='/artist.php?artistId={$ligne['id']}'>$verif</a></p>\n");
+    $num++;
 }
-
 
 echo $webpage->toHTML();
