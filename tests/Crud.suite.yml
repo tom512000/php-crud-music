@@ -1,0 +1,6 @@
+actor: CrudTester
+modules:
+    enabled:
+        - \Tests\Helper\Crud
+        - Asserts
+        - Db: # configuration from codeception.yml injected into MyPdo in _support/Helper/Crud.php

@@ -10,7 +10,7 @@
 ## Sommaire
 - ✔️ 1. Versionnage du projet
 - ✖️ 2. Découpage logique du projet
-    -  ✖️ 2.1. Mise en place du projet
+    -  ✔️️ 2.1. Mise en place du projet
     -  ✖️ 2.2. Entités d'accès aux données et tests
     -  ✖️ 2.3. Structure HTML, CSS et tests d'acceptation
     -  ✖️ 2.4. Création, édition et suppression d'entités
