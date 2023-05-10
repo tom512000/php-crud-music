@@ -4,27 +4,17 @@ declare(strict_types=1);
 
 require_once '../vendor/autoload.php';
 
-use Database\MyPdo;
+use Entity\Collection\ArtistCollection;
 use Html\WebPage;
 
 $webpage = new WebPage();
-$webpage->setTitle("Table de Pythagore");
+$webpage->setTitle("Artistes");
 
-$stmt = MyPDO::getInstance()->prepare(
-    <<<'SQL'
-    SELECT id, name
-    FROM artist
-    ORDER BY name
-SQL
-);
+$tab = ArtistCollection::findAll();
 
-$stmt->execute();
-
-$num = 0;
-while (($ligne = $stmt->fetch()) !== false) {
-    $verif = $webpage->escapeString($ligne['name']);
-    $webpage->appendContent("\t<p><a href='/artist.php?artistId={$ligne['id']}'>$verif</a></p>\n");
-    $num++;
+for ($i = 0; $i < count($tab); $i++) {
+    $verif = $webpage->escapeString($tab[$i]->getName());
+    $webpage->appendContent("\t<p><a href='/artist.php?artistId={$tab[$i]->getId()}'>$verif</a></p>\n");
 }
 
 echo $webpage->toHTML();
