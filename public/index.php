@@ -5,16 +5,15 @@ declare(strict_types=1);
 require_once '../vendor/autoload.php';
 
 use Entity\Collection\ArtistCollection;
-use Html\WebPage;
+use Html\AppWebPage;
 
-$webpage = new WebPage();
-$webpage->setTitle("Artistes");
+$appwebpage = new AppWebPage("Artistes");
 
 $tab = ArtistCollection::findAll();
 
 for ($i = 0; $i < count($tab); $i++) {
-    $verif = $webpage->escapeString($tab[$i]->getName());
-    $webpage->appendContent("\t<p><a href='/artist.php?artistId={$tab[$i]->getId()}'>$verif</a></p>\n");
+    $verif = $appwebpage->escapeString($tab[$i]->getName());
+    $appwebpage->appendContent("\t<a href='/artist.php?artistId={$tab[$i]->getId()}'>$verif</a><br>\n");
 }
 
-echo $webpage->toHTML();
+echo $appwebpage->toHTML();
