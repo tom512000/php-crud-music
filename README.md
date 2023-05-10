@@ -29,3 +29,9 @@ Grâce au script start:linux dans le fichier « composer.json », la commande `p
 
 ## Configuration de la base de données
 Le fichier « .mypdo.ini » est un fichier de configuration qui remplace la ligne `MyPDO::setConfiguration('mysql:host=mysql;dbname=cutron01_music;charset=utf8', 'web', 'web');` du fichier *index.php* qui permet la connexion à Mysql.
+
+## Tests
+1. La commande `composer test:crud` remplace la commande `php vendor/bin/codecept run Crud` qui permet de faire les tests Codeception dans le dossier *Crud*.
+2. La commande `composer test:codecept` remplace la commande `php vendor/bin/codecept run` qui permet de faire les tests Codeception.
+3. La commande `composer test:cs` remplace la commande `php vendor/bin/php-cs-fixer fix --dry-run --diff` qui permet de vérifier les règles de codage de tous les fichiers du projet.
+4. La commande `composer test` permet de lancer les 2 tests (codeception et cs) en une seule commande.
